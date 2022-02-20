@@ -1,4 +1,0 @@
-colorama
-requests
-dhooks
-discord
