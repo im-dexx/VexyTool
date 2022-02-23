@@ -2,11 +2,6 @@
 # █░█ █▀▀ ▀▄▀ ▄▄ █▀▄ █▀▀ █░█
 # ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀
 
-#   Changelog v1.00 :
-# - Supports Linux, Windows, MacOS
-# - Custom Discord API Commands
-# 
-# 
 # https://github.com/im-dexx
 #================================#
 
@@ -22,6 +17,16 @@ from dhooks import Webhook
 import random
 
 from colorama import Fore
+
+# Check 4 Updates
+updater = open("vex.py", "r")
+githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
+
+if updater.text != githubvex:
+    print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
+    time.sleep(1)
+    update = open("vex.py", "a+")
+    update.write(githubvex)
 
 # Variables ======================+
 osys = ""
@@ -154,7 +159,7 @@ def vex():
 
 {Fore.LIGHTBLACK_EX}Vex Commands =========================|
 [0]: {vcmds[0]}{Fore.WHITE} change your token
-[1]: {vcmds[1]}{Fore.WHITE} display changelog
+{Fore.LIGHTBLACK_EX}[1]: {vcmds[1]}{Fore.WHITE} display changelog
         """)
     elif cmd.lower() == "clear" or cmd.lower() == "cls":
         cls()
