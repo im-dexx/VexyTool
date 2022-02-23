@@ -51,10 +51,11 @@ elif sys.platform == "win32":
 
 def check4config():
     if updater != githubvex:
+        githubvex2 = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
         print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
         time.sleep(1)
         update = open("vex.py", "w+")
-        update.write(githubvex)
+        update.write(githubvex2)
     if not path.exists("config"):
         # Reinstall Config
         error("Configuration not found, re-installing.")
