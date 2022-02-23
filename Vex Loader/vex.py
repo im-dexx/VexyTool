@@ -57,7 +57,7 @@ def check4config():
         newtoken.close()
         print("[3]: Installing Changelog")
         newlog = open("config/changelog.txt", 'a+')
-        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/changelog.txt").text)
+        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
         newlog.close()
         print("[/]: Installation finished, welcome "+os.getlogin())
         time.sleep(1)
@@ -118,7 +118,7 @@ else:
         newtoken.close()
         print("[3]: Installing Changelog")
         newlog = open("config/changelog.txt", 'a+')
-        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/changelog.txt").text)
+        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
         newlog.close()
         print("[/]: Installation finished, welcome "+os.getlogin())
         time.sleep(1)
@@ -136,7 +136,7 @@ def vex():
     gcmds = [""]
     acmds = ["webhooks"]
     apicmds = ["ipfind"]
-    vcmds = ["changetoken"]
+    vcmds = ["changetoken", "changelog"]
 
     # Register Commands
     if cmd.lower() == "help" or cmd.lower() == "cmds" or cmd.lower() == "commands":
@@ -147,13 +147,14 @@ def vex():
 [0]: {gcmds[0]}{Fore.WHITE}
 
 {Fore.LIGHTBLACK_EX}Applications =========================|
-[0]: {acmds[0]}{Fore.WHITE}
+[0]: {acmds[0]}{Fore.WHITE} webhook api
 
 {Fore.LIGHTBLACK_EX}Api Commands =========================|
-[0]: {apicmds[0]}{Fore.WHITE} locate an api
+[0]: {apicmds[0]}{Fore.WHITE} locate an ip
 
 {Fore.LIGHTBLACK_EX}Vex Commands =========================|
 [0]: {vcmds[0]}{Fore.WHITE} change your token
+[1]: {vcmds[1]}{Fore.WHITE} display changelog
         """)
     elif cmd.lower() == "clear" or cmd.lower() == "cls":
         cls()
@@ -234,6 +235,11 @@ def vex():
         newtoken.write(token)
         newtoken.close()
         print("[/]: Token Changed\n")
+    elif cmd.lower() == vcmds[1]:
+        cls()
+        banner()
+        print(f"{Fore.LIGHTBLACK_EX}VexyTool Changelog:")
+        print(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
     else:
         error("Invalid Command, retry")
 
