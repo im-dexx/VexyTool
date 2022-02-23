@@ -50,6 +50,11 @@ elif sys.platform == "win32":
     osys = "win"
 
 def check4config():
+    if updater != githubvex:
+        print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
+        time.sleep(1)
+        update = open("vex.py", "w+")
+        update.write(githubvex)
     if not path.exists("config"):
         # Reinstall Config
         error("Configuration not found, re-installing.")
@@ -71,7 +76,13 @@ def check4config():
         cls()
         banner()
         vex()
-
+    githublogs = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text
+    userlogs = open("config/changelog.txt")
+    if githublogs != userlogs:
+        newulogs = open("changelog.txt", "w+")
+        newulogs.write(githublogs)
+        newulogs.close()
+    
 def cls():
     if osys == "linux":
         os.system("clear")
