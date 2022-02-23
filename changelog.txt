@@ -1,0 +1,11 @@
+#================================#
+# █░█ █▀▀ ▀▄▀ ▄▄ █▀▄ █▀▀ █░█
+# ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀
+
+#   Changelog v1.00 :
+# - Supports Linux, Windows, MacOS
+# - Custom Discord API Commands
+# 
+# 
+# https://github.com/im-dexx
+#================================#
