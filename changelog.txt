@@ -6,7 +6,8 @@
 # - Supports Linux, Windows, MacOS
 # - Custom Discord API Commands
 # - Bug Fixes
-# 
+# - Auto Updater
+#
 # 
 # https://github.com/im-dexx
 #================================#
