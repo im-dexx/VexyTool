@@ -22,7 +22,7 @@ from colorama import Fore
 updater = open("vex.py", "r")
 githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
 
-if updater.text != githubvex:
+if updater != githubvex:
     print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
     time.sleep(1)
     update = open("vex.py", "a+")
