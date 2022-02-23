@@ -27,8 +27,8 @@ if updater != githubvex:
     time.sleep(1)
     update = open("vex.py", "w+")
     update.write(githubvex)
-    source = open("source.txt", "a+")
-    source.write(update)
+    source = open("config/old-source.txt", "a+")
+    source.write(githubvex)
     source.close()
 
 # Variables ======================+
@@ -83,7 +83,7 @@ def check4config():
     githublogs = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text
     userlogs = open("config/changelog.txt")
     if githublogs != userlogs:
-        newulogs = open("changelog.txt", "w+")
+        newulogs = open("config/changelog.txt", "w+")
         newulogs.write(githublogs)
         newulogs.close()
     
