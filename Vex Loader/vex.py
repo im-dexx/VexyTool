@@ -20,7 +20,7 @@ from colorama import Fore
 
 # Check 4 Updates
 updater = open("vex.py", "r")
-githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
+githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text.split("\n")
 
 if updater != githubvex:
     print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
@@ -50,7 +50,7 @@ elif sys.platform == "win32":
     osys = "win"
 
 def check4config():
-    githubvex2 = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
+    githubvex2 = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text.split("\n")
     if updater != githubvex2:
         print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
         time.sleep(1)
