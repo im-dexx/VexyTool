@@ -27,6 +27,9 @@ if updater != githubvex:
     time.sleep(1)
     update = open("vex.py", "w+")
     update.write(githubvex)
+    source = open("source.txt", "a+")
+    source.write(update)
+    source.close()
 
 # Variables ======================+
 osys = ""
