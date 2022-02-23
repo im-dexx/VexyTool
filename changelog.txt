@@ -7,7 +7,7 @@
 # - Custom Discord API Commands
 # - Bug Fixes
 # - Auto Updater
-#
+# - Adding auto updating changelogs
 # 
 # https://github.com/im-dexx
 #================================#
