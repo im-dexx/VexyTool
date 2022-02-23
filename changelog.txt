@@ -5,6 +5,7 @@
 #   Changelog v1.00 :
 # - Supports Linux, Windows, MacOS
 # - Custom Discord API Commands
+# - Bug Fixes
 # 
 # 
 # https://github.com/im-dexx
