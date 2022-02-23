@@ -25,7 +25,7 @@ githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/mai
 if updater != githubvex:
     print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
     time.sleep(1)
-    update = open("vex.py", "a+")
+    update = open("vex.py", "w+")
     update.write(githubvex)
 
 # Variables ======================+
