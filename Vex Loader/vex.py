@@ -103,6 +103,7 @@ def banner():
 ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀
 ==========================
 {random.choices(descs)}
+{check("I am aware that the auto-updater is broken.")}
     """)
 def banner2():
     print(Fore.LIGHTBLACK_EX+"""
