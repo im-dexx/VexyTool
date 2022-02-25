@@ -6,6 +6,7 @@
 #================================#
 
 # Libraries =======================+
+from asyncore import write
 import os
 import time
 import requests
@@ -148,7 +149,7 @@ def vex():
     # Ask Input
     check4config()
     cmd = input(f"{Fore.LIGHTBLACK_EX}> {Fore.WHITE}")
-    gcmds = [""]
+    gcmds = ["proxies"]
     acmds = ["webhooks"]
     apicmds = ["ipfind"]
     vcmds = ["changetoken", "changelog"]
@@ -159,7 +160,7 @@ def vex():
         banner()
         print(f"""
 {Fore.LIGHTBLACK_EX}General ==============================|
-[0]: {gcmds[0]}{Fore.WHITE}
+[0]: {gcmds[0]}{Fore.WHITE}it gives u free proxies
 
 {Fore.LIGHTBLACK_EX}Applications =========================|
 [0]: {acmds[0]}{Fore.WHITE} webhook api
@@ -174,6 +175,13 @@ def vex():
     elif cmd.lower() == "clear" or cmd.lower() == "cls":
         cls()
         banner()
+    elif cmd.lower() == gcmds[0]:
+        timeout = int(input(f"{Fore.LIGHTBLACK_EX}Proxy Timeout%> {Fore.LIGHTBLUE_EX}"))
+        proxieslol = requests.get(f'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout={timeout}&country=all&ssl=all&anonymity=all')
+        print(proxieslol.text)
+        writeproxies = open("config/proxies.txt")
+        writeproxies.write(proxieslol)
+        writeproxies.close()
     elif cmd.lower() == apicmds[0]:
         try:
             ip2locate = input(f"{Fore.LIGHTBLACK_EX}IP to locate\n> {Fore.LIGHTBLUE_EX}")
