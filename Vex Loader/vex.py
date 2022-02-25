@@ -6,7 +6,6 @@
 #================================#
 
 # Libraries =======================+
-from asyncore import write
 import os
 import time
 import requests
@@ -26,7 +25,7 @@ githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/mai
 if updater != githubvex:
     askupdate = input(f"{Fore.LIGHTBLACK_EX}Would you like to update? (y/n)\n{Fore.LIGHTBLUE_EX}")
     if askupdate.lower() == "y":
-        print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
+        print(f"{Fore.RED}* {Fore.WHITE} Vex is updating.")
         time.sleep(1)
         update = open("vex.py", "w+")
         update.write(githubvex)
@@ -164,7 +163,7 @@ def vex():
         banner()
         print(f"""
 {Fore.LIGHTBLACK_EX}General ==============================|
-[0]: {gcmds[0]}{Fore.WHITE}it gives u free proxies
+[0]: {gcmds[0]}{Fore.WHITE} it gives u free proxies
 
 {Fore.LIGHTBLACK_EX}Applications =========================|
 [0]: {acmds[0]}{Fore.WHITE} webhook api
