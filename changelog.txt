@@ -7,7 +7,9 @@
 # - Custom Discord API Commands
 # - Bug Fixes
 # - Auto Updater
-# - Adding auto updating changelogs
-# 
+# - Added auto updating changelogs
+# - Asks you if you want to update -- still bugged, planning to fix soon
+# - added proxy scraper, also saves in config files
+#
 # https://github.com/im-dexx
 #================================#
