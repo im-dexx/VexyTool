@@ -24,13 +24,17 @@ updater = open("vex.py", "r")
 githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
 
 if updater != githubvex:
-    print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
-    time.sleep(1)
-    update = open("vex.py", "w+")
-    update.write(githubvex)
-    source = open("config/old-source.txt", "a+")
-    source.write(githubvex)
-    source.close()
+    askupdate = input(f"{Fore.LIGHTBLACK_EX}Would you like to update? (y/n)\n{Fore.LIGHTBLUE_EX}")
+    if askupdate.lower() == "y":
+        print(f"{Fore.RED}* {Fore.WHITE} Vex is outdated, updating...")
+        time.sleep(1)
+        update = open("vex.py", "w+")
+        update.write(githubvex)
+        source = open("config/old-source.txt", "a+")
+        source.write(githubvex)
+        source.close()
+    else:
+        pass
 
 # Variables ======================+
 osys = ""
