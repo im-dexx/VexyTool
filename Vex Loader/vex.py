@@ -107,7 +107,6 @@ def banner():
 ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀
 ==========================
 {random.choices(descs)}
-{check("I am aware that the auto-updater is broken.")}
     """)
 def banner2():
     print(Fore.LIGHTBLACK_EX+"""
@@ -148,6 +147,7 @@ else:
 # Load Vex ========================+
 cls()
 banner()
+check("I am aware that the auto-updater is broken.")
 def vex():
     # Ask Input
     check4config()
@@ -179,12 +179,15 @@ def vex():
         cls()
         banner()
     elif cmd.lower() == gcmds[0]:
-        timeout = int(input(f"{Fore.LIGHTBLACK_EX}Proxy Timeout%> {Fore.LIGHTBLUE_EX}"))
-        proxieslol = requests.get(f'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout={timeout}&country=all&ssl=all&anonymity=all')
-        print(proxieslol.text)
-        writeproxies = open("config/proxies.txt")
-        writeproxies.write(proxieslol)
-        writeproxies.close()
+        try:
+            timeout = int(input(f"{Fore.LIGHTBLACK_EX}Proxy Timeout%> {Fore.LIGHTBLUE_EX}"))
+            proxieslol = requests.get(f'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout={timeout}&country=all&ssl=all&anonymity=all')
+            print(proxieslol.text)
+            writeproxies = open("config/proxies.txt", "w+")
+            writeproxies.write(proxieslol)
+            writeproxies.close()
+        except:
+            error("Error with Proxy API")
     elif cmd.lower() == apicmds[0]:
         try:
             ip2locate = input(f"{Fore.LIGHTBLACK_EX}IP to locate\n> {Fore.LIGHTBLUE_EX}")
