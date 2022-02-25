@@ -184,8 +184,9 @@ def vex():
             proxieslol = requests.get(f'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout={timeout}&country=all&ssl=all&anonymity=all')
             print("\n")
             print(proxieslol.text)
-            writeproxies = open("config/proxies.txt", "w+")
-            writeproxies.write(proxieslol.text)
+            writeproxies = open("config/proxies.txt", "w")
+            writeproxies.write(f"\n----- [Proxies 4 {os.getlogin()}] -----\n\n")
+            writeproxies.write(proxieslol.text+"\n")
             writeproxies.close()
         except:
             error("Error with Proxy API")
