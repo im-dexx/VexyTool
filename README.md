@@ -1,8 +1,11 @@
 # VexyTool
 experimental multitool
-` `
+======================
 - credits to [tangly](https://github.com/Luckytrang2010)
 - join our [discord](https://discord.gg/YHynjFuH6v)!
+
+# Features
+- `Supports multiple OS`
 
 # Requirements
 ```
