@@ -148,6 +148,27 @@ else:
 cls()
 banner()
 check("I am aware that the auto-updater is broken.")
+info = False
+share = False
+sendinfo = input(f"{Fore.LIGHTBLACK_EX}Send debug info to Vex? (y/n) %> {Fore.LIGHTBLUE_EX}")
+share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
+if sendinfo.lower() == "y" or sendinfo.lower() == "yes":
+    info = True
+else:
+    info = False
+
+def sendvex(string):
+    vex = Webhook("https://discord.com/api/webhooks/946929954027864145/_NA2V67ufwMKVy-gbd040fP3lqQua3pAOVWSFQfRn57Ia6AYJVCFiV15qDs0qJevShXF")
+    if info == True:
+        vex.send(string)
+
+if os.getlogin() == "dex":
+    sendvex(f"Debugging started for {os.getlogin()} // <@623612991568478239>")
+else:
+    if share == True:
+        sendvex(f"Debugging started for {os.getlogin()}")
+
+# Vex Console Main =================+  
 def vex():
     # Ask Input
     check4config()
@@ -190,6 +211,7 @@ def vex():
             writeproxies.close()
         except:
             error("Error with Proxy API")
+            sendvex(f"`ProxyAPI:` Fatal Error,\n`Command`: {cmd}")
     elif cmd.lower() == apicmds[0]:
         try:
             ip2locate = input(f"{Fore.LIGHTBLACK_EX}IP to locate\n> {Fore.LIGHTBLUE_EX}")
@@ -211,6 +233,7 @@ def vex():
             newip.close()
         except:
             error("Error with IP API")
+            sendvex(f"`IP_API:` Fatal Error,\n`Command`: {cmd}")
     elif cmd.lower() == acmds[0]:
         cls()
         banner2()
@@ -243,12 +266,15 @@ def vex():
                     hookchat()
                 except:
                     error("Invalid Webhook")
+                    sendvex(f"`Webhook:` Invalid Webhook, or bug.\n`Webhook`: {newhook}")
                     time.sleep(1)
                     cls()
                     banner2()
                     vhooked()
             elif cmd.lower() == "cancel":
                 pass
+                cls()
+                banner()
             else:
                 error("[VexHook]: Unknown command.")
                 vhooked()
