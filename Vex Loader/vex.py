@@ -161,7 +161,11 @@ def sendvex(string):
     if info == True:
         vex.send(string)
 
-share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
+if info == True:
+    share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
+else:
+    pass
+
 if os.getlogin() == "dex":
     sendvex(f"Debugging started for {os.getlogin()} // <@623612991568478239>")
 else:
