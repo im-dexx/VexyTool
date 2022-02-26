@@ -151,7 +151,6 @@ check("I am aware that the auto-updater is broken.")
 info = False
 share = False
 sendinfo = input(f"{Fore.LIGHTBLACK_EX}Send debug info to Vex? (y/n) %> {Fore.LIGHTBLUE_EX}")
-share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
 if sendinfo.lower() == "y" or sendinfo.lower() == "yes":
     info = True
 else:
@@ -162,6 +161,7 @@ def sendvex(string):
     if info == True:
         vex.send(string)
 
+share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
 if os.getlogin() == "dex":
     sendvex(f"Debugging started for {os.getlogin()} // <@623612991568478239>")
 else:
@@ -211,7 +211,7 @@ def vex():
             writeproxies.close()
         except:
             error("Error with Proxy API")
-            sendvex(f"`ProxyAPI:` Fatal Error,\n`Command`: {cmd}")
+            sendvex(f"`ProxyAPI`: Fatal Error,\n`Command`: {cmd}\n`Args`: {timeout}")
     elif cmd.lower() == apicmds[0]:
         try:
             ip2locate = input(f"{Fore.LIGHTBLACK_EX}IP to locate\n> {Fore.LIGHTBLUE_EX}")
@@ -233,7 +233,7 @@ def vex():
             newip.close()
         except:
             error("Error with IP API")
-            sendvex(f"`IP_API:` Fatal Error,\n`Command`: {cmd}")
+            sendvex(f"`IP_API:` Fatal Error,\n`Command`: {cmd}\n`Address`: Saved to {os.getlogin}'s console")
     elif cmd.lower() == acmds[0]:
         cls()
         banner2()
