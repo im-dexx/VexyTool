@@ -19,7 +19,7 @@ import random
 from colorama import Fore
 
 # Check 4 Updates
-if not os.pathexists("Vex.py"):
+if not path.exists("Vex.py"):
     pass
 else:
     updater = open("Vex.py", "r")
