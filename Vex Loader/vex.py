@@ -1,8 +1,8 @@
 #================================#
-# █░█ █▀▀ ▀▄▀ ▄▄ █▀▄ █▀▀ █░█
-# ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀
+# █░█ █▀▀ ▀▄▀ ▄▄ █▀▄ █▀▀ █░█     #
+# ▀▄▀ ██▄ █░█ ░░ █▄▀ ██▄ ▀▄▀     #
 
-# https://github.com/im-dexx
+# https://github.com/im-dexx     #
 #================================#
 
 # Libraries =======================+
@@ -19,21 +19,24 @@ import random
 from colorama import Fore
 
 # Check 4 Updates
-updater = open("vex.py", "r")
-githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
+if not os.pathexists("Vex.py"):
+    pass
+else:
+    updater = open("Vex.py", "r")
+    githubvex = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/Vex%20Loader/vex.py").text
 
-if updater != githubvex:
-    askupdate = input(f"{Fore.LIGHTBLACK_EX}Would you like to update? (y/n)\n{Fore.LIGHTBLUE_EX}")
-    if askupdate.lower() == "y":
-        print(f"{Fore.RED}* {Fore.WHITE} Vex is updating.")
-        time.sleep(1)
-        update = open("vex.py", "w+")
-        update.write(githubvex)
-        source = open("config/old-source.txt", "a+")
-        source.write(githubvex)
-        source.close()
-    else:
-        pass
+    if updater != githubvex:
+        askupdate = input(f"{Fore.LIGHTBLACK_EX}Would you like to update? (y/n)\n{Fore.LIGHTBLUE_EX}")
+        if askupdate.lower() == "y":
+            print(f"{Fore.RED}* {Fore.WHITE} Vex is updating.")
+            time.sleep(1)
+            update = open("Vex.py", "w+")
+            update.write(githubvex)
+            source = open("config/old-source.txt", "a+")
+            source.write(githubvex)
+            source.close()
+        else:
+            pass
 
 # Variables ======================+
 osys = ""
@@ -178,7 +181,7 @@ def vex():
     check4config()
     cmd = input(f"{Fore.LIGHTBLACK_EX}> {Fore.WHITE}")
     gcmds = ["proxies"]
-    acmds = ["webhooks"]
+    acmds = ["webhooks", "selfbot"]
     apicmds = ["ipfind"]
     vcmds = ["changetoken", "changelog"]
 
@@ -191,7 +194,8 @@ def vex():
 [0]: {gcmds[0]}{Fore.WHITE} it gives u free proxies
 
 {Fore.LIGHTBLACK_EX}Applications =========================|
-[0]: {acmds[0]}{Fore.WHITE} webhook api
+[0]: {acmds[0]}{Fore.WHITE} discord webhook api
+{Fore.LIGHTBLACK_EX}[1]: {acmds[1]}{Fore.WHITE} discord selfbot
 
 {Fore.LIGHTBLACK_EX}Api Commands =========================|
 [0]: {apicmds[0]}{Fore.WHITE} locate an ip
@@ -200,6 +204,11 @@ def vex():
 [0]: {vcmds[0]}{Fore.WHITE} change your token
 {Fore.LIGHTBLACK_EX}[1]: {vcmds[1]}{Fore.WHITE} display changelog
         """)
+    elif cmd.lower() == "python" or cmd.lower() == "python3":
+        if cmd.lower() == "python":
+            os.system("python")
+        elif cmd.lower() == "python3":
+            os.system("python3")
     elif cmd.lower() == "clear" or cmd.lower() == "cls":
         cls()
         banner()
@@ -283,6 +292,9 @@ def vex():
                 error("[VexHook]: Unknown command.")
                 vhooked()
         vhooked()
+    elif cmd.lower() == acmds[1]:
+        pass
+        check()
     elif cmd.lower() == vcmds[0]:
         check4config()
         if not path.exists("config/token.txt"):
