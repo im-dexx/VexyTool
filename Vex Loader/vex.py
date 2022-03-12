@@ -151,29 +151,10 @@ else:
 cls()
 banner()
 check("I am aware that the auto-updater is broken.")
-info = False
-share = False
-sendinfo = input(f"{Fore.LIGHTBLACK_EX}Send debug info to Vex? (y/n) %> {Fore.LIGHTBLUE_EX}")
-if sendinfo.lower() == "y" or sendinfo.lower() == "yes":
-    info = True
-else:
-    info = False
 
 def sendvex(string):
     vex = Webhook("https://discord.com/api/webhooks/952313378825699400/VBJx5E7Kf5MhWV84_lPfKSANwBlM8X4MmkIPHm8NCLZ5wcsYkICzcwUXlNr8bMJHhJRN")
-    if info == True:
-        vex.send(string)
-
-if info == True:
-    share = input(f"{Fore.LIGHTBLACK_EX}Do you wish to share your username? (y/n) %> {Fore.LIGHTBLUE_EX}")
-else:
-    pass
-
-if os.getlogin() == "dex":
-    sendvex(f"Debugging started for {os.getlogin()} // <@623612991568478239>")
-else:
-    if share == True:
-        sendvex(f"Debugging started for {os.getlogin()}")
+    vex.send(string)
 
 # Vex Console Main =================+  
 def vex():
