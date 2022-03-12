@@ -157,7 +157,7 @@ else:
     info = False
 
 def sendvex(string):
-    vex = Webhook("https://discord.com/api/webhooks/946929954027864145/_NA2V67ufwMKVy-gbd040fP3lqQua3pAOVWSFQfRn57Ia6AYJVCFiV15qDs0qJevShXF")
+    vex = Webhook("https://discord.com/api/webhooks/952313378825699400/VBJx5E7Kf5MhWV84_lPfKSANwBlM8X4MmkIPHm8NCLZ5wcsYkICzcwUXlNr8bMJHhJRN")
     if info == True:
         vex.send(string)
 
