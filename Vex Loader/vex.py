@@ -61,32 +61,35 @@ elif sys.platform == "win32":
 
 def check4config():
     if not path.exists("config"):
-        # Reinstall Config
-        error("Configuration not found, re-installing.")
-        os.mkdir("config")
-        print("[1]: Input your DISCORD token // or leave empty")
-        token = input(Fore.LIGHTBLACK_EX+f"Token%> {Fore.WHITE}")
-        print("[2]: Creating token")
-        newtoken = open("config/token.txt", 'a+')
-        newtoken.write(token)
-        newtoken.close()
-        print("[3]: Installing Changelog")
-        newlog = open("config/changelog.txt", 'a+')
-        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
-        newlog.close()
-        print("[/]: Installation finished, welcome "+os.getlogin())
-        time.sleep(1)
+        try:
+            # Reinstall Config
+            error("Configuration not found, re-installing.")
+            os.mkdir("config")
+            print("[1]: Input your DISCORD token // or leave empty")
+            token = input(Fore.LIGHTBLACK_EX+f"Token%> {Fore.WHITE}")
+            print("[2]: Creating token")
+            newtoken = open("config/token.txt", 'a+')
+            newtoken.write(token)
+            newtoken.close()
+            print("[3]: Installing Changelog")
+            newlog = open("config/changelog.txt", 'a+')
+            newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
+            newlog.close()
+            print("[/]: Installation finished, welcome "+os.getlogin())
+            time.sleep(1)
 
-        # Relaunch Vex
-        cls()
-        banner()
-        vex()
-    githublogs = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text
-    userlogs = open("config/changelog.txt")
-    if githublogs != userlogs:
-        newulogs = open("config/changelog.txt", "w+")
-        newulogs.write(githublogs)
-        newulogs.close()
+            # Relaunch Vex
+            cls()
+            banner()
+            vex()
+            githublogs = requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text
+            userlogs = open("config/changelog.txt")
+            if githublogs != userlogs:
+                newulogs = open("config/changelog.txt", "w+")
+                newulogs.write(githublogs)
+                newulogs.close()
+        except:
+            error("Cannot repair configuration files.")
     
 def cls():
     if osys == "linux":
@@ -129,20 +132,22 @@ if exist == True:
     time.sleep(1)
 else:
         print(f"{Fore.RED}[#]: {Fore.WHITE}File not found\n[0]: Installing configuration")
-        
-        os.mkdir("config")
-        print("[1]: Input your DISCORD token // or leave empty")
-        token = input(Fore.LIGHTBLACK_EX+f"Token%> {Fore.WHITE}")
-        print("[2]: Creating token")
-        newtoken = open("config/token.txt", 'a+')
-        newtoken.write(token)
-        newtoken.close()
-        print("[3]: Installing Changelog")
-        newlog = open("config/changelog.txt", 'a+')
-        newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
-        newlog.close()
-        print("[/]: Installation finished, welcome "+os.getlogin())
-        time.sleep(1)
+        try:
+            os.mkdir("config")
+            print("[1]: Input your DISCORD token // or leave empty")
+            token = input(Fore.LIGHTBLACK_EX+f"Token%> {Fore.WHITE}")
+            print("[2]: Creating token")
+            newtoken = open("config/token.txt", 'a+')
+            newtoken.write(token)
+            newtoken.close()
+            print("[3]: Installing Changelog")
+            newlog = open("config/changelog.txt", 'a+')
+            newlog.write(requests.get("https://raw.githubusercontent.com/im-dexx/VexyTool/main/changelog.txt").text)
+            newlog.close()
+            print("[/]: Installation finished, welcome "+os.getlogin())
+            time.sleep(1)
+        except:
+            error("Configuration cannot be created.")
 
 # Register Files ==================+
 
